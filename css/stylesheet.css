@@ -1,6 +1,4 @@
-*{
-    box-sizing: border-box;
-}
-body{
-    margin:10px;
+.form{
+    width: 30%;
+    margin-top: 15%;
 }

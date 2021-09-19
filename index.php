@@ -1,43 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/stylesheet.css">
-    <title>Home lesson 1 </title>
-</head>
-<body>
-<form style="margin:30px;" action="" method="post">
-  <div  class="form-group">
-    <input name="first-num" type="number" class="form-control">
-    <small class="form-text text-muted">Məbləği daxil edin</small>
-  </div>
-  <div class="form-floating mb-4">
-  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-    <option selected>Valyutanı seçin</option>
-    <option value="1">USD</option>
-    <option value="2">Euro</option>
-    <option value="3">Tl</option>
-  </select>
-</div>
-  <div  class="form-group">
-    <input name="second-num" type="number" class="form-control" placeholder="">
-    <small class="form-text text-muted">Nəticə</small>
-  </div>
-  <div class="form-group form-check">
-  </div>
-  <button type="submit" class="btn btn-primary">Məbləği Çevir</button>
-</form>  
-<?php 
-$num1 = $_POST['first-num'];
-$num2 = $_POST['second-num'];
+<?php require 'config.php'; ?>
+<?php require_once "header.php";
+      session_start();
+      echo "Welcome user" . $_SESSION['name'];
+?>
 
-function Usd( $a, $b ){  
-  return $a * 1.7063;
-}
-?>  
+
+
+
 
 
 
