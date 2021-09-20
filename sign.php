@@ -1,7 +1,7 @@
 <?php require 'config.php';?> 
 <?php      require 'header.php';  ?>
   
-  
+
 
 
 <center>
@@ -18,26 +18,27 @@
 </form>  
 </center>
 
-<?php 
+<?php
  if(isset($_POST['submit']))
  {
      $username = $_POST['username'];
      $password = $_POST['password'];
-     $query = mysqli_query($connect, "SELECT `user_id`, `user_name`, `password`, `user_email` FROM `user_table` WHERE 1");
+     $select = mysqli_query($connect, "SELECT * FROM `user_table`");
+     $row = mysqli_fetch_assoc($select);
 
      if(!$username || !$password)
      {
          $error =  "Please type your login and password";
-     }elseif($username != $query[`user_name`])
+     }elseif($username != $row['user_name'])
      {
          $error = "Wrong username";
-     }elseif($password != $query['password'])
+     }elseif($password != $row['password'])
      {
          $error = "Wrong password";
      }else{
-         $_SESSION['name'] = $query['user_name'];
+         $_SESSION['name'] = $row['user_name'];
 
-         header("Location:/Crud");
+         header("Location:/Login-Crud/");
      }
  }
 ?>
@@ -48,5 +49,5 @@
           <?= $error; ?>
       </div>
   <?php endif;
-  print_r($query);
+
   ?>
