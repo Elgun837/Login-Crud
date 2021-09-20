@@ -21,14 +21,14 @@
 <?php
  if(isset($_POST['submit']))
  {
-     $username = $_POST['username'];
+     $name = $_POST['username'];
      $password = $_POST['password'];
      $select = mysqli_query($connect, "SELECT * FROM `user_table`");
      while($row = mysqli_fetch_assoc($select)){
-     if(!$username || !$password)
+     if(!$name || !$password)
      {
          $error =  "Please type your login and password";
-     }elseif($username != $row['user_name'])
+     }elseif($name != $row['user_name'])
      {
          $error = "Wrong username";
      }elseif($password != $row['password'])

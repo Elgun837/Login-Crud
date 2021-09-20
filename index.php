@@ -1,8 +1,44 @@
 <?php require 'config.php'; ?>
 <?php require_once "header.php";
-      session_start();
-      echo "Welcome user" . $_SESSION['name'];
 ?>
+
+<body>
+    <center>
+        <table class="table table-dark">
+        <thead>
+            <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Olke</th>
+            <th scope="col">Paytaxt</th>
+            <th scope="col">Pul vahidi</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php 
+            $select = mysqli_query($connect, "SELECT * FROM `author`");
+
+            while($row = mysqli_fetch_assoc($select)){
+        ?>  
+        
+
+            <tr>
+                <th scope="row"><?= $row['id'] ?></th>
+                <td><?= $row['country'] ?></td>
+                <td><?= $row['capital'] ?></td>
+                <td><?= $row['Money'] ?></td>
+                <td>
+                    <a href="update.php?id=<?= $row['id'] ?>">Update et |</a>
+                    <a class="delete" href="delete.php?id=<?= $row['id'] ?>">Sil</a>
+                </td>
+            </tr>
+
+        <?php } ?>
+
+        </tbody>
+    </table>
+    </center>
+
+
 
 
 
