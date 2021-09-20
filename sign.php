@@ -24,8 +24,7 @@
      $username = $_POST['username'];
      $password = $_POST['password'];
      $select = mysqli_query($connect, "SELECT * FROM `user_table`");
-     $row = mysqli_fetch_assoc($select);
-
+     while($row = mysqli_fetch_assoc($select)){
      if(!$username || !$password)
      {
          $error =  "Please type your login and password";
@@ -41,6 +40,7 @@
          header("Location:/Login-Crud/");
      }
  }
+}
 ?>
 
 
@@ -49,5 +49,5 @@
           <?= $error; ?>
       </div>
   <?php endif;
-
+  print_r($row);
   ?>
