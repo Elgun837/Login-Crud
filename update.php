@@ -12,10 +12,10 @@ $row = mysqli_fetch_assoc($select);
   </div>
 </div>
   <div  class="form-group">
-    <input name="capital_name" type="password" class="form-control" placeholder="<?= $row['capital'] ?>">
+    <input name="capital_name" type="text" class="form-control" placeholder="<?= $row['capital'] ?>">
   </div>
   <div  class="form-group">
-    <input name="Money_name" type="password" class="form-control" placeholder="<?= $row['Money'] ?>">
+    <input name="Money_name" type="text" class="form-control" placeholder="<?= $row['Money'] ?>">
   </div>
   <button type="submit" name="submit" class="btn btn-primary">Update</button>
 </form>  
@@ -25,9 +25,12 @@ $row = mysqli_fetch_assoc($select);
         $country_name= $_POST['country_name'];
         $capital_name=$_POST['capital_name'];
         $money_name=$_POST['Money_name'];
-        
-        $select= mysqli_query($connect,"UPDATE `author` SET `country`='$country_name' WHERE id=$id ");
-        
+        $select = mysqli_query($connect, "SELECT * FROM `author` WHERE id=$id");
+
+
+        $select= mysqli_query($connect,"UPDATE `author` SET * WHERE id=$id ");
+        $row = mysqli_fetch_assoc($select);
+
         if($country_name){
           $row['country'] = $country_name; 
        }
@@ -35,7 +38,7 @@ $row = mysqli_fetch_assoc($select);
            $row['capital'] = $capital_name;
            
        }
-       if($Money_name){
+       if($money_name){
            $row['Money'] = $money_name;
            
        }
