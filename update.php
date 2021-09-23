@@ -25,17 +25,20 @@ $row = mysqli_fetch_assoc($select);
         $country_name= $_POST['country_name'];
         $capital_name=$_POST['capital_name'];
         $money_name=$_POST['Money_name'];
+        
+        $select= mysqli_query($connect,"UPDATE `author` SET `country`='$country_name' WHERE id=$id ");
+        
         if($country_name){
-            $select= mysqli_query($connect,"UPDATE `author` SET `country`='$country_name' WHERE id=$id ");
-        }
-        if($capital_name){
-            $select= mysqli_query($connect,"UPDATE `author` SET `capital`='$capital_name' WHERE id=$id ");
-            
-        }
-        if($Money_name){
-            $select= mysqli_query($connect,"UPDATE `author` SET `Money`='$money_name' WHERE id=$id ");
-            
-        }
+          $row['country'] = $country_name; 
+       }
+       if($capital_name){
+           $row['capital'] = $capital_name;
+           
+       }
+       if($Money_name){
+           $row['Money'] = $money_name;
+           
+       }
         header("Location:/Login-Crud/");
     }
 
