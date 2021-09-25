@@ -8,14 +8,14 @@ $row = mysqli_fetch_assoc($select);
 <center>
 <form class="form" action="" method="Post">
   <div  class="form-group">
-    <input name="country_name" type="text" class="form-control" placeholder="<?= $row['country'] ?>">
+    <input name="country_name" type="text" class="form-control" value="<?= $row['country'] ?>">
   </div>
 </div>
   <div  class="form-group">
-    <input name="capital_name" type="text" class="form-control" placeholder="<?= $row['capital'] ?>">
+    <input name="capital_name" type="text" class="form-control" value="<?= $row['capital'] ?>">
   </div>
   <div  class="form-group">
-    <input name="Money_name" type="text" class="form-control" placeholder="<?= $row['Money'] ?>">
+    <input name="Money_name" type="text" class="form-control" value="<?= $row['Money'] ?>">
   </div>
   <button type="submit" name="submit" class="btn btn-primary">Update</button>
 </form>  
